@@ -31,7 +31,7 @@
       if(trigger !== target) trigger.hide();
       var old_value = (
         type === 'textarea' ?
-          target.hmtl().replace(/<br( \/)?>/gm, '\n').replace(/&gt;/gm, '>').replace(/&lt;/gm, '<') :
+          target.html().replace(/<br( \/)?>/gm, '\n').replace(/&gt;/gm, '>').replace(/&lt;/gm, '<') :
           target.html()
       ).replace(/^\s+/,'').replace(/\s+$/,'');
 
