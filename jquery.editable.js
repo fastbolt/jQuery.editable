@@ -27,6 +27,7 @@
       throw('Argument Error - jQuery.editable("click", function(){ ~~ })');
     }
 
+    var maxLength = type === 'input' ? (trigger.attr('data-maxlength') || 0) : 0;
     var target = this;
     var edit = {};
 
@@ -46,6 +47,7 @@
         css('margin',0).attr('id','editable_'+(new Date()*1)).
         addClass('editable');
       if(type === 'textarea') input.css('height', target.height());
+      if(type === 'input' && maxLength > 0) input.attr('maxlength', maxLength);
 
       var finish = function(){
         var result = input.val().replace(/^\s+/,'').replace(/\s+$/,'');
